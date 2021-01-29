@@ -1,0 +1,30 @@
+dynamic callstack in gdb
+-------------------------
+
+1) Attach to the process
+(gdb) attach 17317
+
+2) Show the location of the binary
+(gdb) file /home/sgopal/a.out
+
+3) Set pagination off so that we do not press <space> when the gdb is displaying continuous output.
+(gdb) set pagination off
+
+4) Break on your function.
+(gdb) break  MyNameSpace::MySocketClass::Connect
+
+5) Create a list of commands ("command list") using the "command"  keyword.
+You can give any breakpoint (or watchpoint or catchpoint) a series of commands to execute when your program stops due to that breakpoint. For example, you might want to print the values of certain expressions, or enable other breakpoints.
+(gdb) command
+
+6) After breakpoint is hit, Show the backtrace when the MyNameSpace::MySocketClass::Connect is called. This maybe called from different places.
+(gdb) backt
+
+7) After showing backtrace, continue the execution.
+(gdb) cont
+
+8) End to specify the command list.
+(gdb) end
+
+9) Continue to continue execution of the program,
+(gdb) c
